@@ -1,0 +1,15 @@
+C:\SignIn-174CS\SignIn-174CS\bin\Debug\SignIn-174CS.exe.config
+C:\SignIn-174CS\SignIn-174CS\bin\Debug\SignIn-174CS.exe
+C:\SignIn-174CS\SignIn-174CS\bin\Debug\SignIn-174CS.pdb
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.csproj.AssemblyReference.cache
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\MainWindow.g.cs
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\App.g.cs
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS_MarkupCompile.cache
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS_MarkupCompile.lref
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\MainWindow.baml
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.g.resources
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn_174CS.Properties.Resources.resources
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.csproj.GenerateResource.cache
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.csproj.CoreCompileInputs.cache
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.exe
+C:\SignIn-174CS\SignIn-174CS\obj\Debug\SignIn-174CS.pdb
