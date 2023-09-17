@@ -7,7 +7,7 @@
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10"
                             Background="#353340"
-                            Width="200" Height="30">
+                            Width="{TemplateBinding Width}" Height="30">
                         <Grid>
                             <Rectangle StrokeThickness="1" />
                             <TextBox Margin="1"
@@ -16,22 +16,34 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
-                                     Foreground="#CECECE"/>
+                                     Foreground="#CECECE"
+                                     x:Name="ValueBox"/>
 
                             <TextBlock IsHitTestVisible="False"
-                                       Text="{Binding Name, RelativeSource={RelativeSource AncestorType=TextBox}}"
+                                       Text="{TemplateBinding Name}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Margin="10,0,0,0"
                                        FontSize="11"
                                        Foreground="DarkGray"
-                                       Grid.Column="1">
-                                
+                                       Grid.Column="1"
+                                       x:Name="Placeholder">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=ValueBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                    </Style>
+                                </TextBlock.Style>
                             </TextBlock>
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Width" Value="300"/>
     </Style>
 </ResourceDictionary>
