@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="SignIn_174CS.MVVM.View.SignInCSLView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SignIn_174CS.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.RowSpan="2"
+                      Grid.ColumnSpan="2"
+                      Width="300">
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="3"
+                            BorderThickness="1"
+                            BorderBrush="DarkGray"
+                            CornerRadius="10"
+                            Width="300"/>
+
+            <TextBlock Text="Are you a CSL?"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               FontSize="12"
+                               Foreground="LightGray"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"/>
+
+            <RadioButton Grid.Column="1"
+                         Content="Yes"
+                         HorizontalAlignment="Right"
+                         IsChecked="True"
+                         Style="{StaticResource CSLButtonTheme}"
+                         Command="{Binding SignInCSLTrueCommand}">
+            </RadioButton>
+
+            <RadioButton Grid.Column="2"
+                         Content="No"
+                         HorizontalAlignment="Left"
+                         IsChecked="False"
+                         Style="{StaticResource CSLButtonTheme}"
+                         Command="{Binding SignInCSLFalseCommand}">
+            </RadioButton>
+
+            <TextBlock x:Name="YouCool"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               FontSize="14"
+                               Foreground="LightGray"
+                               Text="You are the best!"/>
+        </Grid>
+
+        <TextBox x:Name="Last"
+                         Style="{StaticResource ModernTextBox}"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                 Text="{Binding LastName}"/>
+
+        <TextBox x:Name="Description"
+                         Style="{StaticResource ModernTextBox}"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                 Text="{Binding Description}"/>
+
+        <Button Grid.Row="4"
+                Grid.Column="0"
+                Style="{StaticResource ButtonTheme}"
+                Content="Clear" 
+                HorizontalAlignment="Right"
+                Command="{Binding ClearCommand}"/>
+        
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Style="{StaticResource ButtonTheme}"
+                Content="Submit" 
+                HorizontalAlignment="Left"
+                BorderThickness="1"
+                BorderBrush="DarkGray"/>
+        
+    </Grid>
+</UserControl>

@@ -4,11 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignIn_174CS"
+        xmlns:view="clr-namespace:SignIn_174CS.MVVM.View"
+        xmlns:viewModel="clr-namespace:SignIn_174CS.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="Sign In" Height="600" Width="920"
         WindowStyle="SingleBorderWindow"
         ResizeMode="CanResize"
         Background="Transparent">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
+
     <Border Background="#272537">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -21,11 +28,12 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="174th COMM Squadron"
+            <TextBlock Text="174th CS Servicing"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="White"
                        FontSize="25" 
+                       FontWeight="Bold"
                        Grid.ColumnSpan="2"/>
 
             <TextBlock Text="Sign In"
@@ -44,134 +52,10 @@
                        Grid.Column="1"
                        Grid.Row="1"/>
 
-            <Grid Grid.Column="0"
-                  Grid.Row="2"
-                  Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Row="0"
-                      Grid.Column="0"
-                      Grid.RowSpan="2"
-                      Grid.ColumnSpan="2"
-                      Width="300"
-                      Margin="5">
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                            
-                    <Border Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.RowSpan="2"
-                            Grid.ColumnSpan="3"
-                            BorderThickness="1"
-                            BorderBrush="DarkGray"
-                            CornerRadius="10"
-                            Width="300"/>
-
-                    <TextBlock Text="Are you a CSL?"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               FontSize="12"
-                               Foreground="LightGray"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Right"/>
-
-                    <RadioButton Grid.Column="1"
-                                 Content="Yes"
-                                 HorizontalAlignment="Right"
-                                 IsChecked="False"
-                                 Style="{StaticResource CSLButtonTheme}">
-                    </RadioButton>
-
-                    <RadioButton Grid.Column="2"
-                                 Content="No"
-                                 HorizontalAlignment="Left"
-                                 IsChecked="True"
-                                 Style="{StaticResource CSLButtonTheme}">
-                    </RadioButton>
-
-                    <TextBlock Text="Who is your CSL?"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               FontSize="12"
-                               Foreground="LightGray"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Right"
-                               Visibility="Visible"/>
-                    
-                    <TextBox x:Name="Name"
-                             Width="175"
-                             Style="{StaticResource ModernTextBox}"
-                             Grid.Row="1"
-                             Grid.Column="1"
-                             Grid.ColumnSpan="2"
-                             Visibility="Visible"/>
-
-                    <TextBlock x:Name="YouCool"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontSize="14"
-                               Foreground="LightGray"
-                               Text="You are the best!"
-                               Visibility="Collapsed"/>
-                </Grid>
-
-                <TextBox x:Name="First"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="2"
-                         Grid.ColumnSpan="2"/>
-
-                <TextBox x:Name="Last"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="3"
-                         Grid.ColumnSpan="2"/>
-
-                <TextBox x:Name="Rank"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="4"
-                         Grid.ColumnSpan="2"/>
-
-                <TextBox x:Name="Phone"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="5"
-                         Grid.ColumnSpan="2"/>
-
-                <TextBox x:Name="Email"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="6"
-                         Grid.ColumnSpan="2"/>
-
-                <TextBox x:Name="Description"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="7"
-                         Grid.ColumnSpan="2"/>
-
-            </Grid>
+            <ContentControl Grid.Column="0"
+                            Grid.Row="2"
+                            Margin="10"
+                            Content="{Binding SignInView}" />
         </Grid>
     </Border>
 </Window>
