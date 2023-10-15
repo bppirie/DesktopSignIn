@@ -1,0 +1,65 @@
+﻿<Window x:Class="SignIn_174CS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SignIn_174CS"
+        xmlns:view="clr-namespace:SignIn_174CS.MVVM.View"
+        xmlns:viewModel="clr-namespace:SignIn_174CS.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="Sign In" Height="620" Width="1000"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
+        Background="Transparent">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
+
+    <Border Background="#272537">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="174th CS Servicing"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="25" 
+                       FontWeight="Bold"
+                       Grid.ColumnSpan="2"/>
+
+            <TextBlock Text="Sign In"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="22" 
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+
+            <TextBlock Text="Sign Out"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="22" 
+                       Grid.Column="1"
+                       Grid.Row="1"/>
+
+            <ContentControl Grid.Column="0"
+                            Grid.Row="2"
+                            Content="{Binding SignInView}" />
+
+            <ContentControl Grid.Column="1"
+                Grid.Row="2"
+                Content="{Binding SignOutView}" 
+                            VerticalAlignment="Top"/>
+        </Grid>
+    </Border>
+</Window>
