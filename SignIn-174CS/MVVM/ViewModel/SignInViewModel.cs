@@ -112,7 +112,6 @@ namespace SignIn_174CS.MVVM.ViewModel
                 Phone = "";
                 Email = "";
                 Description = "";
-                _mainViewModel.ClearSignIn();
             });
         }
 

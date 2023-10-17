@@ -10,7 +10,9 @@
         Title="Sign In" Height="600" Width="920"
         WindowStyle="SingleBorderWindow"
         ResizeMode="CanResize"
-        Background="Transparent">
+        Background="Transparent"
+        MinHeight="650"
+        MinWidth="1000">
 
     <Window.DataContext>
         <viewModel:MainViewModel />
@@ -19,13 +21,15 @@
     <Border Background="#272537">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="310"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
-                <RowDefinition Height="50" />
-                <RowDefinition />
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="174th CS Servicing"
@@ -34,28 +38,15 @@
                        Foreground="White"
                        FontSize="25" 
                        FontWeight="Bold"
-                       Grid.ColumnSpan="2"/>
-
-            <TextBlock Text="Sign In"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontSize="22" 
-                       Grid.Column="0"
-                       Grid.Row="1"/>
-
-            <TextBlock Text="Sign Out"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontSize="22" 
-                       Grid.Column="1"
-                       Grid.Row="1"/>
-
-            <ContentControl Grid.Column="0"
-                            Grid.Row="2"
-                            Margin="10"
+                       Grid.ColumnSpan="4"/>
+            
+            <ContentControl Grid.Column="1"
+                            Grid.Row="1"
                             Content="{Binding SignInView}" />
+
+            <ContentControl Grid.Column="2"
+                            Grid.Row="1"
+                            Content="{Binding SignOutView}" />
         </Grid>
     </Border>
 </Window>

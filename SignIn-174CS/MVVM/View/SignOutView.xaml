@@ -5,131 +5,111 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SignIn_174CS.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="455" d:DesignWidth="360">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition />
+            <RowDefinition MaxHeight="380"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        
+        <TextBlock Text="Sign Out"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="LightGray"
+                       FontSize="22"
+                   Margin="30,0,0,0"/>
+        
+        <Border BorderThickness="1"
+                BorderBrush="DarkGray"
+                CornerRadius="10"
+                Margin="30,0,0,0"
+                Grid.Row="1">
 
-        <Grid Grid.Row="0"
-                      Grid.Column="0"
-                      Grid.RowSpan="2"
-                      Grid.ColumnSpan="2"
-                      Width="300">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="100"/>
+                    <ColumnDefinition MaxWidth="50"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="75"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Date"
+                       Foreground="LightGray" />
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Rank"
+                       Foreground="LightGray" />
 
-            <Border Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.RowSpan="2"
-                            Grid.ColumnSpan="3"
-                            BorderThickness="1"
-                            BorderBrush="DarkGray"
-                            CornerRadius="10"
-                            Width="300"/>
+                <TextBlock Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Name"
+                        Foreground="LightGray" />
 
-            <TextBlock Text="Are you a CSL?"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               FontSize="12"
-                               Foreground="LightGray"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Right"/>
+                <TextBlock Grid.Row="0"
+                        Grid.Column="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Sign Out"
+                        Foreground="LightGray" />
 
-            <RadioButton Grid.Column="1"
-                                 Content="Yes"
-                                 HorizontalAlignment="Right"
-                                 IsChecked="False"
-                                 Style="{StaticResource CSLButtonTheme}">
-            </RadioButton>
+                <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="4">
+                    <ItemsControl x:Name="tStack" ItemsSource="{Binding SignedInUsers}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="30">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="75"/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="75"/>
+                                    </Grid.ColumnDefinitions>
 
-            <RadioButton Grid.Column="2"
-                                 Content="No"
-                                 HorizontalAlignment="Left"
-                                 IsChecked="True"
-                                 Style="{StaticResource CSLButtonTheme}">
-            </RadioButton>
+                                    <Border Height="30"
+                                        Background="Yellow">
+                                        <TextBlock Text="September"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"/>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-            <TextBlock Text="Who is your CSL?"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               FontSize="12"
-                               Foreground="LightGray"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Right"
-                               Visibility="Visible"/>
+                    <Grid Height="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="Name"
-                             Width="175"
-                             Style="{StaticResource ModernTextBox}"
-                             Grid.Row="1"
-                             Grid.Column="1"
-                             Grid.ColumnSpan="2"
-                             Visibility="Visible"/>
+                        <Border Height="30"
+                            Background="Yellow"
+                            Grid.ColumnSpan="4"/>
+                        <TextBlock Text="September"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Grid.Column="0"/>
+                    </Grid>
 
-            <TextBlock x:Name="YouCool"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontSize="14"
-                               Foreground="LightGray"
-                               Text="You are the best!"
-                               Visibility="Collapsed"/>
-        </Grid>
+                </StackPanel>
 
-        <TextBox x:Name="First"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="2"
-                         Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="Last"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="3"
-                         Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="Rank"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="4"
-                         Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="Phone"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="5"
-                         Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="Email"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="6"
-                         Grid.ColumnSpan="2"/>
-
-        <TextBox x:Name="Description"
-                         Style="{StaticResource ModernTextBox}"
-                         Grid.Row="7"
-                         Grid.ColumnSpan="2"/>
-
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

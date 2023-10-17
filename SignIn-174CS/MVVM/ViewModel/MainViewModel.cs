@@ -53,18 +53,5 @@ namespace SignIn_174CS.MVVM.ViewModel
 
             SignInView = _signIn;
         }
-
-        public void ClearSignIn()
-        {       
-            _signIn.CSLName = "";
-            _signIn.FirstName = "";
-            _signIn.LastName = "";
-            _signIn.Rank = "";
-            _signIn.Phone = "";
-            _signIn.Email = "";
-            _signIn.Description = "";
-            _signInCSL.LastName = "";
-            _signInCSL.Description = "";
-        }
     }
 }
