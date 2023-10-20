@@ -49,14 +49,14 @@
                        Grid.Column="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Text="Rank"
+                       Text="Last"
                        Foreground="LightGray" />
 
                 <TextBlock Grid.Row="0"
                         Grid.Column="2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="Name"
+                        Text="Description"
                         Foreground="LightGray" />
 
                 <TextBlock Grid.Row="0"
@@ -71,7 +71,7 @@
                     <ItemsControl x:Name="tStack" ItemsSource="{Binding SignedInUsers}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid Height="30">
+                                <Grid Height="40">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="75"/>
@@ -79,34 +79,27 @@
                                         <ColumnDefinition Width="75"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Border Height="30"
-                                        Background="Yellow">
-                                        <TextBlock Text="September"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"/>
-                                    </Border>
+                                    <Border Height="40"
+                                        Background="#353340"
+                                        Grid.ColumnSpan="4"
+                                            BorderBrush="DarkGray"
+                                            BorderThickness="1"/>
+                                    <TextBlock Text="September"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="0"
+                                               Foreground="DarkGray"/>
+                                    <Button Grid.Column="3"
+                                        Style="{StaticResource ButtonTheme}"
+                                        Content="Sign Out" 
+                                        BorderThickness="1"
+                                        BorderBrush="DarkGray"
+                                            Width="70"
+                                            Height="30"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-
-                    <Grid Height="30">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="75"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="75"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Height="30"
-                            Background="Yellow"
-                            Grid.ColumnSpan="4"/>
-                        <TextBlock Text="September"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Grid.Column="0"/>
-                    </Grid>
-
                 </StackPanel>
 
             </Grid>

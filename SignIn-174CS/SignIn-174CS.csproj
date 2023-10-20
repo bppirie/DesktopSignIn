@@ -65,6 +65,8 @@
     </Compile>
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Helpers\CSVHelper.cs" />
+    <Compile Include="Helpers\RankHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -95,7 +97,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\SignInModel.cs" />
+    <Compile Include="MVVM\Model\SignInUser.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SignInCSLViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SignOutViewModel.cs" />

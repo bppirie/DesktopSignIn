@@ -7,23 +7,19 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid VerticalAlignment="Center"
-                              HorizontalAlignment="Center">
-                            <Border Width="147"
+                        <Border Width="{TemplateBinding Width}"
                                     Height="30"
                                     Background="{TemplateBinding Background}"
                                     CornerRadius="15"
-                                    Margin="3"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
-                                <TextBlock VerticalAlignment="Center"
+                            <TextBlock VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            Foreground="DarkGray"
                                            FontSize="12"
                                            Text="{TemplateBinding Content}"/>
-                            </Border>
-                        </Grid>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>

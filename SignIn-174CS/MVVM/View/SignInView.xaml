@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SignIn_174CS.MVVM.View"
              xmlns:viewModel="clr-namespace:SignIn_174CS.MVVM.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="310">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -145,11 +145,15 @@
                 Style="{StaticResource ButtonTheme}"
                 Content="Clear" 
                 HorizontalAlignment="Right"
+                Width="147"
+                Margin="3"
                 Command="{Binding ClearCommand}"/>
         
         <Button Grid.Row="9"
                 Grid.Column="1"
                 Style="{StaticResource ButtonTheme}"
+                Width="147"
+                Margin="3"
                 Content="Submit" 
                 HorizontalAlignment="Left"
                 BorderThickness="1"

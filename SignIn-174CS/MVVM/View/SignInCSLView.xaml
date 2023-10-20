@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SignIn_174CS.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="310">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -99,6 +99,8 @@
                 Style="{StaticResource ButtonTheme}"
                 Content="Clear" 
                 HorizontalAlignment="Right"
+                Width="147"
+                Margin="3"
                 Command="{Binding ClearCommand}"/>
         
         <Button Grid.Row="4"
@@ -107,6 +109,8 @@
                 Content="Submit" 
                 HorizontalAlignment="Left"
                 BorderThickness="1"
+                Width="147"
+                Margin="3"
                 BorderBrush="DarkGray"/>
         
     </Grid>

@@ -1,4 +1,6 @@
 ﻿using SignIn_174CS.Core;
+using SignIn_174CS.Helpers;
+using System.Linq;
 
 namespace SignIn_174CS.MVVM.ViewModel
 {
@@ -7,6 +9,7 @@ namespace SignIn_174CS.MVVM.ViewModel
         public RelayCommand SignInCSLFalseCommand { get; set; }
         public RelayCommand SignInCSLTrueCommand { get; set; }
         public RelayCommand ClearCommand { get; set; }
+        public RelayCommand SubmitCommand { get; set; }
 
         private MainViewModel _mainViewModel;
 
@@ -91,18 +94,21 @@ namespace SignIn_174CS.MVVM.ViewModel
 
         #endregion
 
-        public SignInViewModel()
+        private SignInViewModel()
         {
+            // Runs when user answers no to the CSL question
             SignInCSLFalseCommand = new RelayCommand(o =>
             {
                 _mainViewModel.SetSignInCSL(false);
             });
 
+            // Runs when user answers yes to the CSL question
             SignInCSLTrueCommand = new RelayCommand(o =>
             {
                 _mainViewModel.SetSignInCSL(true);
             });
 
+            // Runs when the clear button is clicked
             ClearCommand = new RelayCommand(o =>
             {
                 CSLName = "";
@@ -113,11 +119,78 @@ namespace SignIn_174CS.MVVM.ViewModel
                 Email = "";
                 Description = "";
             });
+
+            // Runs when the submit button is clicked
+            SubmitCommand = new RelayCommand(o =>
+            {
+                if (VerifySignInData()) 
+                {
+                    AddSignInEntry();
+                }
+            });
         }
 
         public SignInViewModel(MainViewModel mainViewModel) : this()
         {
             _mainViewModel = mainViewModel;
         }   
+
+        /// <summary>
+        /// Make sure that all the fields are filled in correctly
+        /// </summary>
+        private bool VerifySignInData()
+        {
+            // Verify CSL Name
+            if (!string.IsNullOrEmpty(CSLName) && (CSLName.Length > 100 || CSLName.Any(c => char.IsNumber(c))))
+            {
+                return false;
+            }
+
+            // Verify First Name
+            if (string.IsNullOrEmpty(FirstName) || FirstName.Length > 100 || FirstName.Any(c => char.IsNumber(c)))
+            {
+                return false;
+            }
+
+            // Verify Last Name
+            if (string.IsNullOrEmpty(LastName) || LastName.Length > 100 || LastName.Any(c => char.IsNumber(c)))
+            {
+                return false;
+            }
+
+            // Verify Rank
+            if (string.IsNullOrEmpty(Rank) || Rank.Length > 10 || !RankHelper.IsValidRank(Rank))
+            {
+                return false;
+            }
+
+            // Verify Phone
+            if (string.IsNullOrEmpty(Phone) || Phone.Length > 15 || Phone.Length < 4 || Phone.Any(c => !char.IsNumber(c) && !char.Equals('-', c) && !char.Equals('+', c)))
+            {
+                return false;
+            }
+
+            // Verify Email
+            if (string.IsNullOrEmpty(Email) || Email.Length > 100 || Email.Length < 5 || !Email.Contains('@') || !Email.Contains('.'))
+            {
+                return false;
+            }
+
+            // Verify Description
+            if (string.IsNullOrEmpty(Description) || Description.Length > 500)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Add the data to the CSV file
+        /// </summary>
+        private void AddSignInEntry()
+        {
+            CSVHelper.AddToCSV(LastName, Description, cslName: CSLName, firstName: FirstName, rank: Rank, phone: Phone, email: Email);
+        }
     }
 }
