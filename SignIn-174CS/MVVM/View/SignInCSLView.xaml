@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -21,7 +22,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0"
+        <TextBlock Text="Sign In"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="LightGray"
+                   FontSize="22" 
+                   Grid.ColumnSpan="2"
+                   Grid.Row="0"/>
+
+        <Grid Grid.Row="1"
                       Grid.Column="0"
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="2"
@@ -37,7 +46,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
+           
             <Border Grid.Row="0"
                             Grid.Column="0"
                             Grid.RowSpan="2"
@@ -84,17 +93,17 @@
 
         <TextBox x:Name="Last"
                          Style="{StaticResource ModernTextBox}"
-                         Grid.Row="2"
+                         Grid.Row="3"
                          Grid.ColumnSpan="2"
                  Text="{Binding LastName}"/>
 
         <TextBox x:Name="Description"
                          Style="{StaticResource ModernTextBox}"
-                         Grid.Row="3"
+                         Grid.Row="4"
                          Grid.ColumnSpan="2"
                  Text="{Binding Description}"/>
 
-        <Button Grid.Row="4"
+        <Button Grid.Row="5"
                 Grid.Column="0"
                 Style="{StaticResource ButtonTheme}"
                 Content="Clear" 
@@ -103,7 +112,7 @@
                 Margin="3"
                 Command="{Binding ClearCommand}"/>
         
-        <Button Grid.Row="4"
+        <Button Grid.Row="5"
                 Grid.Column="1"
                 Style="{StaticResource ButtonTheme}"
                 Content="Submit" 
@@ -111,7 +120,8 @@
                 BorderThickness="1"
                 Width="147"
                 Margin="3"
-                BorderBrush="DarkGray"/>
+                BorderBrush="DarkGray"
+                Command="{Binding SubmitCommand}"/>
         
     </Grid>
 </UserControl>

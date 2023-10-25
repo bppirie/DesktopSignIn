@@ -53,5 +53,10 @@ namespace SignIn_174CS.MVVM.ViewModel
 
             SignInView = _signIn;
         }
+
+        public void UpdateSignOutRoster()
+        {
+            _signOut.Refresh();
+        }
     }
 }

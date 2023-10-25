@@ -157,7 +157,8 @@
                 Content="Submit" 
                 HorizontalAlignment="Left"
                 BorderThickness="1"
-                BorderBrush="DarkGray"/>
+                BorderBrush="DarkGray"
+                Command="{Binding SubmitCommand}"/>
         
     </Grid>
 </UserControl>

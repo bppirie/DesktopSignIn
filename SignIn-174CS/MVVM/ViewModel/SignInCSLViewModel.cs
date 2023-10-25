@@ -63,6 +63,8 @@ namespace SignIn_174CS.MVVM.ViewModel
                 if (VerifySignInData())
                 {
                     AddSignInEntry();
+                    _mainViewModel.UpdateSignOutRoster();
+                    ClearCommand.Execute(null);
                 }
             });
         }
