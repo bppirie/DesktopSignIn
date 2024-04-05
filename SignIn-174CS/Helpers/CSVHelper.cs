@@ -15,7 +15,7 @@ namespace SignIn_174CS.Helpers
         private static string SignInFolderPath = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), SignInFolderName);
         private static string SignInCSVName = "SignInData.csv";
         private static string SignInCSVPath = Path.Combine(SignInFolderPath, SignInCSVName);
-        private static string CSVHeader = "Guid,TimeIn,TimeOut,IsCSL,CSLName,First,Last,Rank,Phone,Email,Description";
+        private static string CSVHeader = $"Guid,TimeIn,TimeOut,IsCSL,CSLName,First,Last,Rank,Phone,Email,Description{Environment.NewLine}";
         private static int GuidIndex = CSVHeader.Split(',').ToList().IndexOf("Guid");
         private static int TimeOutIndex = CSVHeader.Split(',').ToList().IndexOf("TimeOut");
 
